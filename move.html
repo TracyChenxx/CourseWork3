@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="UTF-8">
+<title>SVG</title>
+
+<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+
+<div id="container">
+  <button id="btn">start</button>
+
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMin slice" viewBox="0 0 600 220">
+   
+    <!-- Motion path -->
+    <path id="a" class="pat" fill="none" stroke="#d3d3d3" stroke-width="0" d="M50 100s50 32 100-14 50 87 100-10 50 5 100 60 50-49 100 30 50-79 100-70"/>
+   
+   <path id="a" class="pat" fill="none" stroke="#d3d3d3" stroke-width="0" d="M50 100s50 68 100-32 60 87 100-10 38 5 70 16 50-49 30 59 50-79 100-20"/>
+    <!-- Key points -->
+    <circle cx="50" cy="100" r="15" fill="#d3d3d3"/>
+    <circle cx="550" cy="96" r="15" fill="#d3d3d3"/>
+	  <circle cx="870" cy="86" r="15" fill="#d3d3d3"/>
+   
+	
+    <!-- Text for key points -->
+    <text fill="#d3d3d3" font-family="monospace" font-size="20">
+      <tspan x="30" y="150"> Initial point </tspan>
+      <tspan x="500" y="125"> Terminus </tspan>
+    </text>
+	
+    <!-- Red shape on the motion path. -->
+    <circle r="5" fill="red" id="cir" style="display: none">
+      <!-- Define the motion path animation for the shape-->
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath xlink:href="#a"/>
+      </animateMotion>
+    </circle>
+	
+    <!-- Text on the motion path -->
+    <text fill="red" font-family="monospace" font-size="20" id="txt" style="display: none">
+      <tspan x="0" y="-20" text-anchor="middle"> Object </tspan>
+      <!-- Define the motion path animation for the text-->
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath xlink:href="#a"/>
+      </animateMotion>
+    </text>
+	
+  </svg>
+  
+  
+</div>
+
+<script type="text/javascript">
+  document.getElementById("btn").onclick=function(){
+
+    // console.log(document.getElementsByClassName("pat"))
+    // document.getElementsByClassName("pat").setAttribute("id","b");
+    document.getElementById("cir").style.display="block";
+    document.getElementById("txt").style.display="block";
+  }
+</script>
+  
+  
+
+</body>
+
+</html>
